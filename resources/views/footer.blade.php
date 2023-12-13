@@ -14,10 +14,7 @@
                     <li>Terwujudnya perpustakaan sesuai standar nasional perpustakaan</li>
                 </ul>                     
             </div>
-            <div class="col-md-3">
-                Copyright &copy; 2017. All right reserve
-                <p>
-                Developed by The Letter</div>
+            
         </div>
     </div>
     <!--akhir FOOTER-->
