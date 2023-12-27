@@ -15,7 +15,7 @@
     </head>
 
     <body>
-        <div class="container" style="background:#ccc">
+        <div class="" style="background:#ccc">
         <div class="alert alert-info text-center">   
             <h4 style="margin-bottom: 0px"><b>Selamat Datang</b> di Perpustakaan Digital Inovatif</h4>     
         </div>
