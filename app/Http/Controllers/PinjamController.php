@@ -27,7 +27,7 @@ class PinjamController extends Controller
         ->paginate(5);
 
         $datapetugas    = PetugasModel::all();
-        $dataanggota      = AnggotaModel::all();
+        $dataanggota    = AnggotaModel::all();
         $databuku       = BukuModel::all();
 
         return view('halaman/view_pinjam',['pinjam'=>$datapinjam,'petugas'=>$datapetugas,'anggota'=>$dataanggota,'buku'=>$databuku]);
@@ -39,13 +39,15 @@ class PinjamController extends Controller
         $this->validate($request, [
             'id_petugas' => 'required',
             'id_anggota' => 'required',
-            'id_buku' => 'required'
+            'id_buku' => 'required',
+            'tgl_pinjam' => 'required'
         ]);
 
         PinjamModel::create([
             'id_petugas' => $request->id_petugas,
             'id_anggota' => $request->id_anggota,
-            'id_buku' => $request->id_buku
+            'id_buku' => $request->id_buku,
+            'tgl_pinjam' => $request->tgl_pinjam,
         ]);
         return redirect('/pinjam');
     }
@@ -65,13 +67,15 @@ class PinjamController extends Controller
         $this->validate($request, [
             'id_petugas' => 'required',
             'id_anggota' => 'required',
-            'id_buku' => 'required'
+            'id_buku'    => 'required',
+            'tgl_pinjam' => 'required'
         ]);
 
         $id_pinjam = PinjamModel::find($id_pinjam);
         $id_pinjam->id_petugas    = $request->id_petugas;
-        $id_pinjam->id_anggota      = $request->id_anggota;
-        $id_pinjam->id_buku      = $request->id_buku;
+        $id_pinjam->id_anggota    = $request->id_anggota;
+        $id_pinjam->id_buku       = $request->id_buku;
+        $id_pinjam->tgl_pinjam    = $request->tgl_pinjam;
 
         $id_pinjam->save();
 
