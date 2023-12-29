@@ -24,6 +24,10 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link" href="/pengembalian">Data Pengembalian</a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>
             </ul>

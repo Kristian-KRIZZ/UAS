@@ -1,4 +1,4 @@
-@extends('menu')
+@extends('index')
 
 @section('title', 'Homee')
 
