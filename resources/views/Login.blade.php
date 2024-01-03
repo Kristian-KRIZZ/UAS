@@ -36,6 +36,16 @@
             
             <h1 class="h3 mb-3 fw-normal">Enter Your Data</h1>
 
+            @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
             <div class="form-floating">
                 <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com" value="{{ old('email') }}">
                 <label for="floatingInput">ID</label>
