@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-//panggil model BukuModel
+//panggil model AnggotaModel
 use App\Models\AnggotaModel;
 
 class AnggotaController extends Controller
