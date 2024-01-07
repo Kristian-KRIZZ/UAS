@@ -55,4 +55,10 @@ Route::get('/pinjam', 'PinjamController@pinjamtampil');
 Route::post('/pinjam/tambah','PinjamController@pinjamtambah');
 Route::get('/pinjam/hapus/{id_pinjam}','PinjamController@pinjamhapus');
 Route::put('/pinjam/edit/{id_pinjam}', 'PinjamController@pinjamedit');
+
+//Route untuk Data Pengembalian
+Route::get('/pengembalian', 'PengembalianController@pengembaliantampil');
+Route::post('/pengembalian/tambah','pengembalianController@pengembaliantambah');
+Route::get('/pengembalian/hapus/{id_pengembalian}','pengembalianController@pengembalianhapus');
+Route::put('/pengembalian/edit/{id_pengembalian}', 'pengembalianController@pengembalianedit');
 });

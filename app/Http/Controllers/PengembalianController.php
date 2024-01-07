@@ -34,7 +34,7 @@ class PengembalianController extends Controller
     }
 
     //method untuk tambah data pengembalian
-    public function pinjamtambah(Request $request)
+    public function pengembaliantambah(Request $request)
     {
         $this->validate($request, [
             'id_petugas' => 'required',
