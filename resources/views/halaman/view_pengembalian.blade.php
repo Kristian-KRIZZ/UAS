@@ -19,7 +19,6 @@
                 <td align="center">Nama Petugas</td>
                 <td align="center">Nama Anggota</td>
                 <td align="center">Judul Buku</td>
-                <td align="center">Tanggal Pengembalian</td>
                 <td align="center">Aksi</td>
             </tr>
         </thead>
@@ -62,7 +61,7 @@
                                                 <div class="col-sm-8">
                                                     <select type="text" class="form-control" id="id_petugas" name="id_petugas">
                                                         @foreach ($petugas as $pt)
-                                                            @if ($pt->id_petugas == $p->id_petugas)
+                                                            @if ($pt->id_petugas == $pt->id_petugas)
                                                                 <option value="{{ $pt->id_petugas }}" selected>{{ $pt->nama_petugas }}</option>
                                                             @else
                                                                 <option value="{{ $pt->id_petugas }}">{{ $pt->nama_petugas }}</option>
@@ -78,7 +77,7 @@
                                                 <div class="col-sm-8">
                                                     <select type="text" class="form-control" id="id_anggota" name="id_anggota">
                                                         @foreach ($anggota as $a)
-                                                            @if ($a->id_anggota == $p->id_anggota)
+                                                            @if ($a->id_anggota == $pt->id_anggota)
                                                                 <option value="{{ $a->id_anggota }}" selected>{{ $a->nama_anggota }}</option>
                                                             @else
                                                                 <option value="{{ $a->id_anggota }}">{{ $a->nama_anggota }}</option>
@@ -94,7 +93,7 @@
                                                 <div class="col-sm-8">
                                                     <select type="text" class="form-control" id="id_buku" name="id_buku">
                                                         @foreach ($buku as $bk)
-                                                            @if ($bk->id_buku == $p->id_buku)
+                                                            @if ($bk->id_buku == $bk->id_buku)
                                                                 <option value="{{ $bk->id_buku }}" selected>{{ $bk->judul }}</option>
                                                             @else
                                                                 <option value="{{ $bk->id_buku }}">{{ $bk->judul }}</option>
@@ -104,7 +103,7 @@
                                                 </div>
                                             </div>
                                         
-                                            <p>
+                                            {{-- <p>
                                             <div class="form-group row">
                                                 <label for="pengembalian" class="col-sm-4 col-form-label">Tanggal Pengembalian</label>
                                                 <div class="col-sm-8">
@@ -118,7 +117,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>    
+                                            </div>     --}}
 
                                             <p>
                                             <div class="modal-footer">
@@ -200,13 +199,13 @@
                              </div>
                          </div> --}}
 
-                         <p>
+                         {{-- <p>
                          <div class="form-group row">
                             <label for="pengembalian" class="col-sm-4 col-form-label">Tanggal Pengembalian</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" id="pengembalian" name="pengembalian" placeholder="Masukan Tanggal Pengembalian">
                             </div>
-                         </div>
+                         </div> --}}
 
                         <p>
                         <div class="form-group row">
