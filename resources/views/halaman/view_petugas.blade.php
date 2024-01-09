@@ -2,7 +2,7 @@
 @section('title', 'Petugas')
 
 @section('isihalaman')
-    <h3><center>Daftar Petugas Perpustakaan Universitas Semarang</center></h3>
+    <h3><center>Daftar Petugas</center></h3>
     
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPetugasTambah"> 
         Tambah Data Petugas 

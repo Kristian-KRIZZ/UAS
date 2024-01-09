@@ -4,7 +4,7 @@
 
 @section('isihalaman')
     <h3><center>Data Pengembalian Buku</center><h3>
-    <h3><center>Perpustakaan Universitas Semarang</center></h3>
+    <h3><center>Perpustakaan Digital Inovatif</center></h3>
 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPengembalianTambah"> 
         Tambah Data Pengembalian 
@@ -37,7 +37,7 @@
                             Edit
                         </button>
 
-                        <!-- Awal Modal EDIT data Peminjaman -->
+                        
                         <div class="modal fade" id="modalPengembalianEdit{{$pe->id_pengembalian}}" tabindex="-1" role="dialog" aria-labelledby="modalPengembalianEditLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -123,7 +123,7 @@
                                             <p>
                                             <div class="modal-footer">
                                                 <button type="button" name="tutup" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                                <button type="submit" name="pinjamtambah" class="btn btn-success">Edit</button>
+                                                <button type="submit" name="pengembaliantambah" class="btn btn-success">Edit</button>
                                             </div>
                                         </form>
                                     </div>
@@ -224,7 +224,7 @@
                         <p>
                         <div class="modal-footer">
                             <button type="button" name="tutup" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                            <button type="submit" name="pengembalian" class="btn btn-success">Tambah</button>
+                            <button type="submit" name="pengembaliantambah" class="btn btn-success">Tambah</button>
                         </div>
                     </form>
                 </div>
