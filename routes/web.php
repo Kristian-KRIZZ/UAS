@@ -27,7 +27,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, 'index']);
     
 
-    Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //Route untuk Data Buku
 Route::get('/buku', 'BukuController@bukutampil');

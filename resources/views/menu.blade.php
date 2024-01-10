@@ -26,18 +26,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/pengembalian">Data Pengembalian</a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">Logout</a>
-                </li>
             </ul>
         </div>
+        <a href="javascript:void(0)" onclick="document.getElementById('logout-form').submit()">Logout</a>
 
-        <form class="d-flex mt-3 ml-auto" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-
+<form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+    @csrf
+</form>
     </nav>            
 </div>
 <!--akhir MENU NAVBAR-->
