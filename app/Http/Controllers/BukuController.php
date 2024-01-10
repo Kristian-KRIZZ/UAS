@@ -22,6 +22,7 @@ class BukuController extends Controller
     public function bukutambah(Request $request)
     {
         $this->validate($request, [
+            'id_buku' => 'required',
             'kode_buku' => 'required',
             'judul' => 'required',
             'pengarang' => 'required',
@@ -29,6 +30,7 @@ class BukuController extends Controller
         ]);
 
         BukuModel::create([
+            'id_buku' => $request->id_buku,
             'kode_buku' => $request->kode_buku,
             'judul' => $request->judul,
             'pengarang' => $request->pengarang,

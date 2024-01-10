@@ -24,10 +24,15 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/logout">Logout</a>
+                    <a class="nav-link" href="/pengembalian">Data Pengembalian</a>
                 </li>
             </ul>
         </div>
+        <a href="javascript:void(0)" onclick="document.getElementById('logout-form').submit()">Logout</a>
+
+<form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+    @csrf
+</form>
     </nav>            
 </div>
 <!--akhir MENU NAVBAR-->

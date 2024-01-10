@@ -1,13 +1,13 @@
 
 @extends('index')
-@section('title', 'Peminjaman')
+@section('title', 'Pengembalian')
 
 @section('isihalaman')
-    <h3><center>Data Peminjaman Buku</center><h3>
-    <h3><center>Perpustakaan Universitas Semarang</center></h3>
+    <h3><center>Data Pengembalian Buku</center><h3>
+    <h3><center>Perpustakaan Digital Inovatif</center></h3>
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPinjamTambah"> 
-        Tambah Data Peminjaman 
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPengembalianTambah"> 
+        Tambah Data Pengembalian 
     </button>
 
     <p>
@@ -15,7 +15,7 @@
         <thead>
             <tr>
                 <td align="center">No</td>
-                <td align="center">ID Pinjam</td>
+                <td align="center">ID Pengembalian</td>
                 <td align="center">Nama Petugas</td>
                 <td align="center">Nama Anggota</td>
                 <td align="center">Judul Buku</td>
@@ -24,34 +24,34 @@
         </thead>
 
         <tbody>
-            @foreach ($pinjam as $index=>$p)
+            @foreach ($pengembalian as $index=>$pe)
                 <tr>
-                    <td align="center" scope="row">{{ $index + $pinjam->firstItem() }}</td>
-                    <td align="center">{{$p->id_pinjam}}</td>
-                    <td>{{$p->petugas->nama_petugas}}</td>
-                    <td>{{$p->anggota->nama_anggota}}</td>
-                    <td>{{$p->buku->judul}}</td>
+                    <td align="center" scope="row">{{ $index + $pengembalian->firstItem() }}</td>
+                    <td align="center">{{$pe->id_pengembalian}}</td>
+                    <td>{{$pe->petugas->nama_petugas}}</td>
+                    <td>{{$pe->anggota->nama_anggota}}</td>
+                    <td>{{$pe->buku->judul}}</td>
                     <td align="center">
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalPinjamEdit{{$p->id_pinjam}}"> 
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalPengembalianEdit{{$pe->id_pengembalian}}"> 
                             Edit
                         </button>
 
-                        <!-- Awal Modal EDIT data Peminjaman -->
-                        <div class="modal fade" id="modalPinjamEdit{{$p->id_pinjam}}" tabindex="-1" role="dialog" aria-labelledby="modalPinjamEditLabel" aria-hidden="true">
+                        
+                        <div class="modal fade" id="modalPengembalianEdit{{$pe->id_pengembalian}}" tabindex="-1" role="dialog" aria-labelledby="modalPengembalianEditLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="modalPinjamEditLabel">Form Edit Data Peminjaman</h5>
+                                        <h5 class="modal-title" id="modalPengembalianEditLabel">Form Edit Data Pengembalian</h5>
                                     </div>
                                     <div class="modal-body">
 
-                                        <form name="formpinjamedit" id="formpinjamedit" action="/pinjam/edit/{{ $p->id_pinjam}} " method="post" enctype="multipart/form-data">
+                                        <form name="formpengembalianedit" id="formpengembalianedit" action="/pengembalian/edit/{{ $pe->id_pengembalian}} " method="post" enctype="multipart/form-data">
                                             @csrf
                                             {{ method_field('PUT') }}
                                             <div class="form-group row">
-                                                <label for="id_pinjam" class="col-sm-4 col-form-label">ID Pinjam</label>
+                                                <label for="id_pengembalian" class="col-sm-4 col-form-label">ID Pengembalian</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="id_pinjam" name="id_pinjam" value="{{ $p->id_pinjam}}" readonly>
+                                                    <input type="text" class="form-control" id="id_pengembalian" name="id_pengembalian" value="{{ $pe->id_pengembalian}}" readonly>
                                                 </div>
                                             </div>
 
@@ -61,7 +61,7 @@
                                                 <div class="col-sm-8">
                                                     <select type="text" class="form-control" id="id_petugas" name="id_petugas">
                                                         @foreach ($petugas as $pt)
-                                                            @if ($pt->id_petugas == $p->id_petugas)
+                                                            @if ($pt->id_petugas == $pt->id_petugas)
                                                                 <option value="{{ $pt->id_petugas }}" selected>{{ $pt->nama_petugas }}</option>
                                                             @else
                                                                 <option value="{{ $pt->id_petugas }}">{{ $pt->nama_petugas }}</option>
@@ -77,7 +77,7 @@
                                                 <div class="col-sm-8">
                                                     <select type="text" class="form-control" id="id_anggota" name="id_anggota">
                                                         @foreach ($anggota as $a)
-                                                            @if ($a->id_anggota == $p->id_anggota)
+                                                            @if ($a->id_anggota == $pt->id_anggota)
                                                                 <option value="{{ $a->id_anggota }}" selected>{{ $a->nama_anggota }}</option>
                                                             @else
                                                                 <option value="{{ $a->id_anggota }}">{{ $a->nama_anggota }}</option>
@@ -93,7 +93,7 @@
                                                 <div class="col-sm-8">
                                                     <select type="text" class="form-control" id="id_buku" name="id_buku">
                                                         @foreach ($buku as $bk)
-                                                            @if ($bk->id_buku == $p->id_buku)
+                                                            @if ($bk->id_buku == $bk->id_buku)
                                                                 <option value="{{ $bk->id_buku }}" selected>{{ $bk->judul }}</option>
                                                             @else
                                                                 <option value="{{ $bk->id_buku }}">{{ $bk->judul }}</option>
@@ -102,20 +102,36 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                        
+                                            {{-- <p>
+                                            <div class="form-group row">
+                                                <label for="pengembalian" class="col-sm-4 col-form-label">Tanggal Pengembalian</label>
+                                                <div class="col-sm-8">
+                                                    <select type="text" class="form-control" id="tgl_pengembalian" name="tgl_pengembalian">
+                                                        @foreach ($pengembalian as $pe)
+                                                            @if ($pe->tgl_pengembalian == $pe->tgl_pengembalian)
+                                                                    <option value="{{ $pe->id_pengembalian }}" selected>{{ $pe->pengembalian }}</option>
+                                                            @else
+                                                                <option value="{{ $pe->id_pengembalian }}">{{ $pe->pengembalian }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>     --}}
 
                                             <p>
                                             <div class="modal-footer">
                                                 <button type="button" name="tutup" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                                <button type="submit" name="pinjamtambah" class="btn btn-success">Edit</button>
+                                                <button type="submit" name="pengembaliantambah" class="btn btn-success">Edit</button>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Akhir Modal EDIT data Peminjaman -->
+                        <!-- Akhir Modal EDIT data Pengembalian -->
                         |
-                        <a href="pinjam/hapus/{{$p->id_pinjam}}" onclick="return confirm('Yakin mau dihapus?')">
+                        <a href="pengembalian/hapus/{{$pe->id_pengembalian}}" onclick="return confirm('Yakin mau dihapus?')">
                             <button class="btn-danger">
                                 Delete
                             </button>
@@ -127,23 +143,23 @@
     </table>
 
     <!--awal pagination-->
-    Halaman : {{ $pinjam->currentPage() }} <br />
-    Jumlah Data : {{ $pinjam->total() }} <br />
-    Data Per Halaman : {{ $pinjam->perPage() }} <br />
+    Halaman : {{ $pengembalian->currentPage() }} <br />
+    Jumlah Data : {{ $pengembalian->total() }} <br />
+    Data Per Halaman : {{ $pengembalian->perPage() }} <br />
 
-    {{ $pinjam->links() }}
+    {{ $pengembalian->links() }}
     <!--akhir pagination-->
 
-    <!-- Awal Modal tambah data Peminjaman -->
-    <div class="modal fade" id="modalPinjamTambah" tabindex="-1" role="dialog" aria-labelledby="modalPinjamTambahLabel" aria-hidden="true">
+    <!-- Awal Modal tambah data Pengembalian -->
+    <div class="modal fade" id="modalPengembalianTambah" tabindex="-1" role="dialog" aria-labelledby="modalPengembalianTambahLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalPinjamTambahLabel">Form Input Data Peminjaman</h5>
+                    <h5 class="modal-title" id="modalPengembalianTambahLabel">Form Input Data Pengembalian</h5>
                 </div>
                 <div class="modal-body">
 
-                    <form name="formpinjamtambah" id="formpinjamtambah" action="/pinjam/tambah " method="post" enctype="multipart/form-data">
+                    <form name="formpengembaliantambah" id="formpengembaliantambah" action="/pengembalian/tambah " method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <label for="id_petugas" class="col-sm-4 col-form-label">Nama Petugas</label>
@@ -170,6 +186,27 @@
                             </div>
                         </div>
 
+                        {{-- <p>
+                        <div class="form-group row">
+                            <label for="tgl_pengembalian" class="col-sm-4 col-form-label">Tanggal Pengembalian</label>
+                            <div class="col-sm-8">
+                                <select type="text" class="form-control" id="tgl_pengembalian" name="tgl_pengembalian" placeholder="Masukan Tanggal">
+                                    <option></option>
+                                     @foreach($pengembalian as $pe)
+                                        <option value="{{ $pe->id_pengembalian }}">{{ $pe->pengembalian }}</option>
+                                    @endforeach
+                                </select>
+                             </div>
+                         </div> --}}
+
+                         {{-- <p>
+                         <div class="form-group row">
+                            <label for="pengembalian" class="col-sm-4 col-form-label">Tanggal Pengembalian</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="pengembalian" name="pengembalian" placeholder="Masukan Tanggal Pengembalian">
+                            </div>
+                         </div> --}}
+
                         <p>
                         <div class="form-group row">
                             <label for="id_buku" class="col-sm-4 col-form-label">Judul Buku</label>
@@ -186,13 +223,13 @@
                         <p>
                         <div class="modal-footer">
                             <button type="button" name="tutup" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                            <button type="submit" name="pinjamtambah" class="btn btn-success">Tambah</button>
+                            <button type="submit" name="pengembaliantambah" class="btn btn-success">Tambah</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Akhir Modal tambah data Peminjaman -->
+    <!-- Akhir Modal tambah data Pengembalian -->
     
 @endsection
